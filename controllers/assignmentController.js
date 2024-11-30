@@ -59,9 +59,20 @@ const rejectAssignment = async (req, res) => {
   }
 };
 
+const allAdmins = async (req, res) => {
+  try {
+    // Find all users with the "admin" role
+    const admins = await User.find({ role: "admin" }, "name email");
+    res.json(admins);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   uploadAssignment,
   getAssignments,
   acceptAssignment,
   rejectAssignment,
+  allAdmins,
 };

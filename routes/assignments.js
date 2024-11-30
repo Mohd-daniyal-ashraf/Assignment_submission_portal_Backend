@@ -4,12 +4,15 @@ const {
   getAssignments,
   acceptAssignment,
   rejectAssignment,
+  allAdmins,
 } = require("../controllers/assignmentController");
 const { verifyToken } = require("../middlewares/authMiddleware");
 const router2 = express.Router();
 
 // User routes
 router2.post("/upload", verifyToken, uploadAssignment);
+router2.post("/admins", verifyToken, allAdmins);
+
 router2.get("/assignments", verifyToken, getAssignments);
 
 // Admin routes

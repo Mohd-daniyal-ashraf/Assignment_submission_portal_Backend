@@ -7,6 +7,7 @@ const router2 = require("./routes/assignments");
 
 require("dotenv").config();
 app.use(bodyParser.json());
+
 // connect to mongoDB with 
 mongoose
 .connect(process.env.MONGO_URI, {
